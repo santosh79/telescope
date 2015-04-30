@@ -15,7 +15,8 @@ var postsData = [
 
 if(Posts.find().count() === 0) {
   _.each(postsData, function(post) {
-    Posts.insert(post);
+    var mergedPost = _.extend(post, {flagged: false, author: 'bob-smith', category: 'Javascript'});
+    Posts.insert(mergedPost);
   });
 }
 
